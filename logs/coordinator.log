@@ -1,0 +1,17 @@
+2026-05-20 13:29:54 | TXN001 | INITIAL | Transaction created: from=A001, to=B001, amount=1000
+2026-05-20 13:29:54 | TXN001 | PREPARE | Coordinator sends PREPARE request to Bank A and Bank B
+2026-05-20 13:29:54 | TXN001 | READY | All participants voted READY
+2026-05-20 13:29:54 | TXN001 | COMMIT | Coordinator sends COMMIT request to Bank A and Bank B
+2026-05-20 13:32:34 | TXN002 | INITIAL | Transaction created: from=A001, to=B001, amount=999999
+2026-05-20 13:32:34 | TXN002 | PREPARE | Coordinator sends PREPARE request to Bank A and Bank B
+2026-05-20 13:32:35 | TXN002 | ABORT | At least one participant is not ready. Transaction aborted.
+2026-05-20 13:43:06 | TXN003 | INITIAL | Transaction created: from=A001, to=B001, amount=1000
+2026-05-20 13:43:06 | TXN003 | PREPARE | Coordinator sends PREPARE request to Bank A and Bank B
+2026-05-20 13:43:06 | TXN003 | READY | All participants voted READY
+2026-05-20 13:43:06 | TXN003 | CRASH | Coordinator crashed after PREPARE/READY but before COMMIT
+2026-05-20 13:57:19 | TXN003 | INITIAL | Transaction created: from=A001, to=B001, amount=1000
+2026-05-20 13:57:19 | TXN003 | PREPARE | Coordinator sends PREPARE request to Bank A and Bank B
+2026-05-20 13:57:19 | TXN003 | READY | All participants voted READY
+2026-05-20 13:57:19 | TXN003 | CRASH | Coordinator crashed after PREPARE/READY but before COMMIT
+2026-05-20 14:00:05 | TXN003 | RECOVERY | Coordinator rebooted and found pending transaction
+2026-05-20 14:00:05 | TXN003 | COMMIT | Pending transaction committed successfully after recovery
